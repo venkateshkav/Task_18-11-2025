@@ -3,11 +3,12 @@ from django.db import models
 # Create your models here.
 class Book(models.Model):
     title = models.CharField()
-    Author = models.CharField()
-    Category = models.CharField(choices=[("Fiction","Fiction"),("Science","Science"),("History","History")])
-    Price = models.PositiveIntegerField()
+    author = models.CharField()
+    category = models.CharField(choices=[("Fiction","Fiction"),("Science","Science"),("History","History")])
+    price = models.FloatField()
     published_date = models.DateField()
-    is_available = models.CharField(choices=[("Yes","Yes"),("No","No")])
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
+    

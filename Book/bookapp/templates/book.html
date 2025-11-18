@@ -14,12 +14,12 @@
         {% for i in data %}
     <hr>
     <li> Book_Title: {{i.title}} </li>
-    <li> Author_Name: {{i.Author}} </li>
-    <li> Category: {{i.Category}} </li>
-    <li> Price: {{i.Price}} </li>
+    <li> Author_Name: {{i.author}} </li>
+    <li> Category: {{i.category}} </li>
+    <li> Price: {{i.price}} </li>
     <li> published_date: {{i.published_date}} </li>
     <li> is_available: {{i.is_available}} </li>
-    <li> <a href="{% url 'bok_edit' i.id %}">Edit</a> <a href="{% url 'bok_del' i.id %}">Delete</a> </li>
+    <li> <a href="{% url 'bok_edit' i.id %}">Edit</a> <a href="{% url 'bok_del' i.id %}">Delete</a> <a href="{% url 'dashboard' %}">Go to Dashboard</a> </li>
     <hr>
     {% endfor %}
 </body>

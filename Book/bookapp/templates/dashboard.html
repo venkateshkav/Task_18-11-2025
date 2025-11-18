@@ -1,0 +1,50 @@
+<h1>Dashboard</h1>
+<form method="GET">
+    <input type="text" name="q" placeholder="Search by author">
+    <button type="submit">Search</button>
+</form>
+
+{% if search_result %}
+<h2>Search Result</h2>
+<ul>
+    {% for i in search_result %}
+        <li>{{ i.title }} - {{ i.author }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<h2>Available Books</h2>
+<ul>
+    {% for i in available_books %}
+        <li>{{ i.title }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Books Ordered by Price (DESC)</h2>
+<ul>
+    {% for i in ordered_books %}
+        <li>{{ i.title }} - ₹{{ i.price }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Books Per Category</h2>
+<ul>
+    {% for c in category_count %}
+        <li>{{ c.category }} : {{ c.total }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Average Price</h2>
+<p>{{ avg_price }}</p>
+
+<h2>Total Books</h2>
+<p>{{ total_books }}</p>
+
+<h2>Latest 5 Books</h2>
+<ul>
+    {% for i in latest_books %}
+        <li>{{ i.title }} - {{ i.published_date }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'bok_create' %}">Go back</a>
