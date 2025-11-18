@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_table}}
+        <button>ADD</button>
+    </form>
+        {% for i in data %}
+    <hr>
+    <li> Book_Title: {{i.title}} </li>
+    <li> Author_Name: {{i.Author}} </li>
+    <li> Category: {{i.Category}} </li>
+    <li> Price: {{i.Price}} </li>
+    <li> published_date: {{i.published_date}} </li>
+    <li> is_available: {{i.is_available}} </li>
+    <li> <a href="{% url 'bok_edit' i.id %}">Edit</a> <a href="{% url 'bok_del' i.id %}">Delete</a> </li>
+    <hr>
+    {% endfor %}
+</body>
+</html> 
