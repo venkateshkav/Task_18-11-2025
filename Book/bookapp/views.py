@@ -35,9 +35,7 @@ def book_delete(request,book_id):
     return redirect("bok_create")
 
 def dashboard(request):
-    query = request.GET.get("q", "")
-    search_result = None
-    if query:
+        query = request.GET.get("q", "")
         search_result = Book.objects.filter(author__icontains=query)
         available_books = Book.objects.filter(is_available=True)
         ordered_books = Book.objects.order_by("-price")
